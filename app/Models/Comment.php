@@ -8,6 +8,7 @@ class Comment extends Model //modelを継承してCommentsというテーブル�
 {
     //テーブル名を決める
     protected $table = 'comments';
+    protected $primaryKey = 'comment_id';
 
     //可変項目(保存したい値)
     protected $fillable =

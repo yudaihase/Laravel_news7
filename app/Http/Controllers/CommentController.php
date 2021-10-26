@@ -42,7 +42,8 @@ class CommentController extends Controller
     public function show($id){
         
         $article = Article::find($id);
-        /* dd($article);  */
+/*         dd($article); 
+        exit; */
         
         $comments = $article->comments()->get();
         
@@ -53,12 +54,15 @@ class CommentController extends Controller
         ]);
     }
 
-    public function destroy($comment){
+    public function destroy($comment_id){
 
-        $comment = Comment::findOrFail($id);
+        $comment = Comment::find($comment_id);
+        $article_id = $comment->article_id;
+
         $comment->delete();
 
-        return redirect()->route('comments.show', $request->article_id);
+        return redirect()->route('comments.show',$article_id);
     }
+    
 }
     

@@ -42,12 +42,11 @@
         @foreach($comments as $comment)
                     <hr>
                         <p>{{ $comment->text }}</p>
-                        {!! Form::model($comment, ['route' => ['comments.destroy', $comment->id], 'method' => 'delete', 'class' => 'comment']) !!}
-                        {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
-                        {!! Form::close() !!}
+                        
+                        {{Form::model(null, ['route' => ['comments.destroy', $comment->comment_id], 'method' => 'delete', 'class' => 'comment']) }}
+                        {{Form::submit('削除', ['class' => 'btn btn-danger']) }}
+                        {{Form::close() }}
                         @csrf
-                        <input type="submit" value="コメントを消す" class="submitStyle">
-                        </form>
                     @endforeach
                     @endif
 
