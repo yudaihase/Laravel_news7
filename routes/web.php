@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', "ArticleController@index")->name('index');//定義付け
 
 
-Route::resource('articles', 'articleController')->only([
+Route::resource('articles', 'ArticleController')->only([
     'index',
     'store',
 ]);
